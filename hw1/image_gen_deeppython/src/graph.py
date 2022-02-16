@@ -148,7 +148,9 @@ def main():
 
     nx.draw_networkx(mw.graph)
 
-    plt.show()
+    # plt.show()
+    plt.rc('pgf', texsystem='lualatex')
+    plt.savefig("plot.pgf")
 
 
 if __name__ == "__main__":

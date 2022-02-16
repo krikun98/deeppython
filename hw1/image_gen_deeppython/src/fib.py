@@ -13,5 +13,6 @@ def fibs(n):
         print(next(gen), end=" ")
 
 
-fibs(10)
+if __name__ == "__main__":
+    fibs(10)
 
