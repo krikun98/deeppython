@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="image_gen_deeppython",
-    version="0.0.2",
+    version="0.0.4",
     author="Alexander Krikun",
     author_email="krikun98@gmail.com",
     description=("A sample graph generator for an advanced Python class"),
