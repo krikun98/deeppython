@@ -1,5 +1,6 @@
 import random
 from datetime import date
+from image_gen_deeppython import graph
 
 
 def generate_line():
@@ -20,12 +21,17 @@ def preamble():
 
 % Packages
 \\usepackage{{amsmath}}
+\\usepackage{{tikz}}
 
 """.format(date.today().strftime("%d/%m/%Y"))
 
 
 def wrap_document(content):
     return "\\begin{document}\n\n" + content + "\\end{document}\n\n"
+
+
+def wrap_image(path):
+    return "\\input{" + path + "}\n\n"
 
 
 def wrap_center(content):
@@ -59,3 +65,6 @@ def create_document(content):
 if __name__ == "__main__":
     with open("test_array.tex", "w") as file:
         file.write(create_document(matrix_to_table(generate_matrix())))
+    with open("test_image.tex", "w") as file:
+        graph.main()
+        file.write(create_document(wrap_image("plot.pgf")))
