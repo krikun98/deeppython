@@ -63,8 +63,8 @@ def create_document(content):
 
 
 if __name__ == "__main__":
-    with open("test_array.tex", "w") as file:
+    with open("artifacts/test_array.tex", "w") as file:
         file.write(create_document(matrix_to_table(generate_matrix())))
-    with open("test_image.tex", "w") as file:
-        graph.main()
+    with open("artifacts/test_image.tex", "w") as file:
+        graph.main(graph="artifacts/plot.pgf")
         file.write(create_document(wrap_image("plot.pgf")))

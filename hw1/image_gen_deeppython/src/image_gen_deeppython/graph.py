@@ -134,7 +134,7 @@ class FibWalker(ast.NodeVisitor):
         self.proceed(stmt)
 
 
-def main(filename = "fib.py"):
+def main(filename="fib.py", graph="plot.pgf"):
     with open(filename, 'r') as fin:
         src = fin.read()
 
@@ -148,7 +148,7 @@ def main(filename = "fib.py"):
 
     # plt.show()
     plt.rc('pgf', texsystem='lualatex')
-    plt.savefig("plot.pgf")
+    plt.savefig(graph)
 
 
 if __name__ == "__main__":
