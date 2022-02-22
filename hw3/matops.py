@@ -1,6 +1,7 @@
+# Easy
 import copy
-
 import numpy as np
+from pathlib import Path
 
 
 class Matrix(list):
@@ -30,12 +31,13 @@ class Matrix(list):
 
 
 if __name__ == "__main__":
+    Path("artifacts").mkdir(exist_ok=True)
     np.random.seed(0)
     a = Matrix(np.random.randint(0, 10, (2, 2)))
     b = Matrix(np.random.randint(0, 10, (2, 2)))
-    with open("matrix+.txt", "w") as file:
+    with open("artifacts/matrixplus.txt", "w") as file:
         file.write(str(a+b))
-    with open("matrix*.txt", "w") as file:
-        file.write(str(a+b))
-    with open("matrix@.txt", "w") as file:
-        file.write(str(a+b))
+    with open("artifacts/matrixmul.txt", "w") as file: # the OS didn't like matrix* as a path.
+        file.write(str(a*b))
+    with open("artifacts/matrixmatmul.txt", "w") as file:
+        file.write(str(a@b))
