@@ -59,11 +59,11 @@ class NpMatrix(np.lib.mixins.NDArrayOperatorsMixin, Printer, Offloader, Gettable
 
 
 if __name__ == "__main__":
-    Path("artifacts").mkdir(exist_ok=True)
+    Path("artifacts/medium").mkdir(exist_ok=True)
     np.random.seed(0)
     a = NpMatrix([])
     a.set_value(np.random.randint(0, 10, (2, 2)))
     b = NpMatrix(np.random.randint(0, 10, (2, 2)))
-    (a+b).offload("artifacts/npmatrixplus.txt")
-    (a*b).offload("artifacts/npmatrixmul.txt")
-    (a@b).offload("artifacts/npmatrixmatmul.txt")
+    (a+b).offload("artifacts/medium/npmatrixplus.txt")
+    (a*b).offload("artifacts/medium/npmatrixmul.txt")
+    (a@b).offload("artifacts/medium/npmatrixmatmul.txt")
