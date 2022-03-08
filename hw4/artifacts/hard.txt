@@ -1,0 +1,46 @@
+0.387973   Input message: I
+2.4077113  Input finished
+2.7651959  Encoded message: v
+2.7652198  Input message: Am
+4.3189911  Input finished
+trying7.7791243  Encoded message: nz
+7.7791922  Input message:
+8.6083381  Input finished
+to
+encode12.7863223 Encoded message:
+12.7864029 Input message: 12.7866144 Input finished
+
+several
+messages
+17.7980856 Encoded message: gb
+17.7981119 Input message: 17.7981381 Input finished
+22.8085681 Encoded message:
+22.808618  Input message: 22.8086313 Input finished
+27.8235302 Encoded message: frireny
+27.8235648 Input message: 27.8235796 Input finished
+32.8256053 Encoded message: zrffntrf
+32.8256314 Input message: for
+35.3271322 Input finished
+37.8399244 Encoded message: sbe
+37.8399554 Input message: a
+38.8147702 Input finished
+42.8434418 Encoded message: n
+42.8435216 Input message: test
+44.198993  Input finished
+47.848125  Encoded message: grfg
+47.8481515 Input message: of
+49.0813732 Input finished
+my
+program52.863637  Encoded message: bs
+52.8638316 Input message: 52.8640486 Input finished
+
+57.874903  Encoded message: zl
+57.8749298 Input message: 57.8749558 Input finished
+62.8882302 Encoded message:
+62.88828   Input message: fin
+65.2646212 Input finished
+67.8919598 Encoded message: sva
+67.8919881 Input message: exit
+69.2475402 Input finished
+
+Process finished with exit code 0
