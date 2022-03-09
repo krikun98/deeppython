@@ -21,13 +21,23 @@ def integrate_piece(f, a, i, step):
     return f(a + i*step) * step
 
 
-def integrate_par(f, a, b, *, executor, n_iter=1000):
+def integrate_chunk(f, a, b, c, step):
+    acc = 0
+    for i in range(b, c):
+        acc += integrate_piece(f, a, i, step)
+    return acc
+
+
+def integrate_par(f, a, b, *, executor, n_jobs=1, n_iter=10000):
     acc = 0
     step = (b - a) / n_iter
+    b = 0
+    b_step = int(n_iter/n_jobs)
     futures = []
-    for i in range(n_iter):
-        futures.append(executor.submit(integrate_piece, f, a, i, step))
-    for i in range(n_iter):
+    for i in range(n_jobs):
+        futures.append(executor.submit(integrate_chunk, f, a, b, b+b_step, step))
+        b += b_step
+    for i in range(n_jobs):
         acc += futures[i].result()
     return acc
 
