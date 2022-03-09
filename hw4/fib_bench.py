@@ -1,12 +1,12 @@
-from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 from multiprocessing import Process
 from pathlib import Path
+from threading import Thread
 
 from fib import fib_gen
 from time import perf_counter_ns
 from random import randint
 
-val = 1000
+val = 10000
 repeat = 10
 
 
@@ -20,23 +20,28 @@ def bench_sync(large):
 
 
 def bench_thread(large):
-    executor = ThreadPoolExecutor(max_workers=repeat)
-    results = []
-    time_bef = perf_counter_ns()
+    threads = []
+    result = 0
     for _ in range(repeat):
-        results.append(executor.submit(fib_gen, large))
-    executor.shutdown()
+        threads.append(Thread(target=fib_gen, args=(large, )))
+    time_bef = perf_counter_ns()
+    for i in range(repeat):
+        threads[i].start()
+    for i in range(repeat):
+        result = threads[i].join()
     time_aft = perf_counter_ns()
     return time_aft - time_bef
 
 
 def bench_proc(large):
-    executor = ProcessPoolExecutor(max_workers=repeat)
-    results = []
-    time_bef = perf_counter_ns()
+    processes = []
     for _ in range(repeat):
-        results.append(executor.submit(fib_gen, large))
-    executor.shutdown()
+        processes.append(Process(target=fib_gen, args=(large, )))
+    time_bef = perf_counter_ns()
+    for i in range(repeat):
+        processes[i].start()
+    for i in range(repeat):
+        processes[i].join()
     time_aft = perf_counter_ns()
     return time_aft - time_bef
 
