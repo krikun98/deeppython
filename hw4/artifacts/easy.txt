@@ -1,0 +1,3 @@
+Synchronous time in ns: 3678011800
+Thread time in ns: 3634652200
+Multiprocessing time in ns: 1842639700
